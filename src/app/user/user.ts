@@ -1,5 +1,17 @@
-import { Component, Input,input } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-users';
+import { Component, EventEmitter, Input, input, output, Output } from '@angular/core';
+
+// type Users = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+
+// }
+
+interface Users {
+  id: string;
+  avatar: string;
+  name: string;
+}
 
 
 @Component({
@@ -11,14 +23,14 @@ import { DUMMY_USERS } from '../dummy-users';
 
 
 export class User {
-  // @Input({required:true}) avatar!: string;
-  // @Input({required:true}) name!: string;
+  @Input({ required: true }) user!: Users;
 
-  avatar  = input<string>( );
+  @Output() select = new EventEmitter<string>();
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
   onSelectUser() {
+    this.select.emit(this.user.id);
   }
 }
