@@ -4,6 +4,7 @@ import { User } from "./user/user";
 import { DUMMY_USERS } from './dummy-users';
 import { Tasks } from "./tasks/tasks";
 
+
 @Component({
   selector: 'app-root',
   imports: [Header, User, Tasks],
@@ -25,5 +26,5 @@ export class App {
   onSelectUser(id: string) {
     this.selectedUserId = id;
   }
- 
+
 }
