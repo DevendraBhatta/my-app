@@ -1,23 +1,19 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { type Task } from './task.model.js';
 
-
-interface Task{
-    id:string;
-    userId:string;
-    title:string;
-    summary:string;
-    dueDate:string;
-}
 @Component({
-    selector:'app-task',
-    standalone:true, 
-    templateUrl:'./task.component.html',
-    styleUrls:['./task.component.css']
+    selector: 'app-task',
+    standalone: true,
+    templateUrl: './task.component.html',
+    styleUrls: ['./task.component.css']
 })
 
-export  class TaskComponent{
-    @Input({required:true}) task!:Task;
+export class TaskComponent {
+    @Input({ required: true }) task!: Task;
+    @Output() complete  = new EventEmitter<string>();
 
 
-    
+    onCompleteTask(){
+        this.complete.emit(this.task.id);
+    }
 }
