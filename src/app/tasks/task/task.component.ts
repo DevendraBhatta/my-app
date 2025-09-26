@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { type Task } from './task.model.js';
+import { CardComponent } from "../../shared/card/card.component";
+import { DatePipe } from '@angular/common';
 
 @Component({
     selector: 'app-task',
     standalone: true,
     templateUrl: './task.component.html',
-    styleUrls: ['./task.component.css']
+    styleUrls: ['./task.component.css'],
+    imports: [CardComponent,DatePipe]
 })
 
 export class TaskComponent {
@@ -16,4 +19,6 @@ export class TaskComponent {
     onCompleteTask(){
         this.complete.emit(this.task.id);
     }
+
+    
 }
