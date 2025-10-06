@@ -1,9 +1,12 @@
-import { NgModule } from "@angular/core";
-import { App } from "./app";
+import { NgModule } from "@angular/core"; 
+// import { AppComponent } from "./app.component";
+import { BrowserModule } from '@angular/platform-browser';
+import { HeaderComponent } from "./header/header.component";
+import { UserComponent } from "./user/user.component";
+import { TasksComponent } from "./tasks/tasks.component";
+ 
 @NgModule({
-    declarations: [App]
+    declarations: [],
+    imports: [BrowserModule, HeaderComponent, UserComponent, TasksComponent]
 })
-export class AppModule {
-
-
-}
+export class AppModule {}

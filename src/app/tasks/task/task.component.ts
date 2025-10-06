@@ -5,8 +5,7 @@ import { DatePipe } from '@angular/common';
 import { TasksService } from '../tasks.service.js';
 
 @Component({
-    selector: 'app-task',
-    standalone: true,
+    selector: 'app-task', 
     templateUrl: './task.component.html',
     styleUrls: ['./task.component.css'],
     imports: [CardComponent, DatePipe]
